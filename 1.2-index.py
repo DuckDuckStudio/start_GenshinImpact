@@ -16,7 +16,6 @@ music = r"startmusic.mp3" # 启动音乐
 program_name = "YuanShen.exe" # 不用动，除非你启动的是启动器而非游戏本体
 # -------------------------------------
 
-
 def isScreenAllWhite(image):  # 判断屏幕全白
     # 将截图转换为numpy数组，以便分析每个像素的颜色
     pixel_data = np.array(image)
