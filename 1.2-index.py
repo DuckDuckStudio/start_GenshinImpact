@@ -8,10 +8,6 @@ import os
 from tkinter import messagebox # 弹窗
 import psutil # 检测是否已经启动
 
-# VSCode 对 pywin32 给出虚假警告，忽略
-# 对路径使用`r`以防止以外的 SyntaxWarning
-# 本地测试 pass
-
 os.chdir(os.path.dirname(os.path.abspath(__file__)))  # 避免意外的位置
 
 # -----------相关变量设置---------------
@@ -34,10 +30,8 @@ def programStart(program):  # 启动指定路径的程序
     try:
         ctypes.windll.shell32.ShellExecuteW(None, "runas", program, None, None, 1)
     except:
-        messagebox.showerror("没安原神？","改罚！")
-        #time.sleep(3)
-        #os.system("shutdown -s -t 30") 高危指令，千万别取消注释
-        #os.system("shutdown -a") 
+        messagebox.showerror("没装原神？","改罚！")
+        should_punish()
         
 
 def windowTop():  # 置顶原神窗口
@@ -69,6 +63,12 @@ def is_program_running(program_name):# 检测是否已经启动
             return True
     return False
 
+def should_punish():# 该罚
+    #time.sleep(3)
+    #os.system("shutdown -s -t 30") 高危指令，千万别取消注释
+    #os.system("shutdown -a")
+    pass# 取消注释后删除这句
+
 if os.access(ys, os.F_OK):
     os.system("cls")# 清除来自pygame的消息
     print("程序加载完成，等待原神启动...")
@@ -89,6 +89,4 @@ if os.access(ys, os.F_OK):
         time.sleep(0) # <--- 如果cpu消耗太大，可以在这里修改检测间隔(单位秒，可以改为0.3，效果较佳)
 else:
     messagebox.showerror("没装原神？","该罚！")
-    #time.sleep(3)
-    #os.system("shutdown -s -t 30") 高危指令，千万别取消注释
-    #os.system("shutdown -a") 
+    should_punish()
