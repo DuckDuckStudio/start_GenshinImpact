@@ -29,7 +29,7 @@ def programStart(program):  # 启动指定路径的程序
     try:
         ctypes.windll.shell32.ShellExecuteW(None, "runas", program, None, None, 1)
     except:
-        messagebox.showerror("没装原神？","改罚！")
+        messagebox.showerror("没安原神？","改罚！")
         should_punish()
         
 
@@ -87,5 +87,5 @@ if os.access(ys, os.F_OK):
                 print("启动太多了，要装不下了~")
         time.sleep(0) # <--- 如果cpu消耗太大，可以在这里修改检测间隔(单位秒，可以改为0.3，效果较佳)
 else:
-    messagebox.showerror("没装原神？","该罚！")
+    messagebox.showerror("没安原神？","改罚！")
     should_punish()
